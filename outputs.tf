@@ -2,7 +2,8 @@
 ## Outputs
 ##-----------------------------------------------------------------------------
 output "id" {
-  value = try(azurerm_data_factory.main[0].id, null)
+  description = "The ID of the "
+  value       = try(azurerm_data_factory.main[0].id, null)
 }
 
 output "identity" {
