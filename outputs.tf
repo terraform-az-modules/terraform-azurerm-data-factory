@@ -6,5 +6,6 @@ output "id" {
 }
 
 output "identity" {
-  value = try(azurerm_data_factory.main[0].identity, null)
+  value       = try(azurerm_data_factory.main[0].identity, null)
+  description = "The identity block of the Azure Data Factory."
 }
