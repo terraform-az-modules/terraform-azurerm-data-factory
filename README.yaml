@@ -1,56 +1,48 @@
----
-#
-# This is the canonical configuration for the `README.md`
-# Run `make readme` to rebuild the `README.md`
-#
+name: Terraform Azure Data Factory
 
-# Name of this project
-name : Terraform Azure Data Factory
+intro: |-
+  With our comprehensive DevOps toolkit - streamline operations, automate workflows, enhance collaboration and deploy with confidence.
 
-# License of this project
+badges_text: "Latest Release | tfsec | License | Changelog"
+
+about: |-
+  Terraform module to create and manage Data Factory on Azure.
+
 license: "APACHE"
 
-# Canonical GitHub repo
-github_repo: terraform-az-modules/terraform-azure-data-factory
+github_repo: terraform-az-modules/terraform-azurerm-data-factory
 
-# Badges to display
 badges:
   - name: "Terraform"
-    image: "https://img.shields.io/badge/Terraform-v0.13-green"
+    image: "https://img.shields.io/badge/Terraform-v1.6-green"
     url: "https://www.terraform.io"
+
   - name: "Licence"
     image: "https://img.shields.io/badge/License-APACHE-blue.svg"
     url: "LICENSE.md"
-  - name: "Changelog"
-    image: "https://img.shields.io/badge/Changelog-blue"
-    url: "CHANGELOG.md"
 
-# Prerequesties to display
-prerequesties:
+prerequisites:
   - name: Terraform
     url: https://learn.hashicorp.com/terraform/getting-started/install.html
     version: ">= 1.6.6"
 
 providers:
-  - name: azure
-    url: https://azure.microsoft.com/
-    version: ">= 3.116.0"
+  - name: azurerm
+    url: https://registry.terraform.io/providers/hashicorp/azurerm/latest
+    version: ">= 4.0"
 
-#  description of this project
 description: |-
-  Terraform Azure Data Factory is a Terraform module that allows you to create and manage Azure Data Factory.
+  Terraform module to create and manage Data Factory on Azure.
 
-# How to use this project
 usage: |-
-  Here are some examples of how you can use this module in your inventory structure:
+  ### Example
+
   ```hcl
-  module "data_factory" {
-  depends_on          = [module.resource_group]
-  source              = "./../../"
-  name                = "core"
-  environment         = "dev"
-  label_order         = ["name", "environment", "location"]
-  location            = module.resource_group.resource_group_location
-  resource_group_name = module.resource_group.resource_group_name
+  module "data-factory" {
+    source = "./"
+
+    name                = "data-factory-demo"
+    resource_group_name = "rg-demo"
+    location            = "Central India"
   }
-    ```
+  ```
